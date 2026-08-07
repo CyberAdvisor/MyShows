@@ -208,16 +208,28 @@
   .remove-link { color: var(--danger); font-size: 13px; }
   .text-link { color: var(--accent); font-size: 13px; }
 </style>
-<!-- Cloudflare Web Analytics: anonymous page-view/visit counts, country,
-     referrer, and device/browser type only - no cookies, no persistent
-     visitor id, no personal data, and it never sees your watch list (that
-     stays in localStorage and is only ever sent to TVmaze). Placed in the
-     document head, above the app's own inline script tag, rather than near
-     the closing body tag where analytics snippets usually go - see
-     CLAUDE_CONTEXT.md ("Cloudflare Web Analytics beacon") for why the
-     ordering matters here. Keep any future script tags above the app's
-     inline script too, not below it. -->
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "04654b9dc47944c5b742f1da9b586079"}'></script>
+<!-- Default Statcounter code for My Shows Tracker
+https://myshows.com
+     Placed in the document head, above the app's own inline script tag,
+     rather than near the closing body tag where analytics snippets usually
+     go - see CLAUDE_CONTEXT.md ("Statcounter beacon") for why the ordering
+     matters here. Keep any future script tags above the app's inline
+     script too, not below it. -->
+<script type="text/javascript">
+var sc_project=13340854; 
+var sc_invisible=1; 
+var sc_security="474bb4c6"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13340854/0/474bb4c6/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 </head>
 <body>
 <div id="app"></div>
