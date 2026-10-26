@@ -3,7 +3,8 @@
 ## Project layout
 
 - `myshows/index.html` is the shipped TV-episode tracker. It is a self-contained vanilla HTML/CSS/JavaScript app served at `/myshows/`.
-- Root `index.html` is the public marketing/landing page. `guide/index.html` and `changelog/index.html` are separate static pages.
+- Root `index.html` is the public marketing/landing page. It describes **My Shows v2** (app at `https://v2.myshows.fyi/`, repo `CyberAdvisor/MyShows-V2`) as the default, and links to v1 (`/myshows/`) and the v1 guide for legacy users. Its screenshots are `images/v2-list-dark.png` and `images/v2-detail-dark.png` (dark only); `images/app-preview-dark.png` is the old v1 preview, kept but no longer used by the landing page.
+- `guide/index.html` and `changelog/index.html` are the v1 guide and changelog. The landing page's guide and changelog links point to the v2 versions at `https://v2.myshows.fyi/guide/` and `/changelog/`.
 - `logic.js` is the CommonJS, testable copy of the tracker’s pure logic. Its corresponding functions are intentionally duplicated in the inline script in `myshows/index.html`; keep both implementations in sync.
 - `logic.test.js` contains unit tests; `app.test.js` is a jsdom integration suite. The copies under `myshows/` are the ones that exercise the tracker, because they resolve `myshows/index.html` relative to themselves.
 
@@ -33,6 +34,6 @@ node myshows/app.test.js
 
 - Update the relevant public page (`README.md`, `guide/index.html`, or `changelog/index.html`) when a user-visible workflow changes.
 - GitHub Pages serves this repository as a static HTTPS site; `CNAME` defines the custom domain. Avoid changes that assume server-side routing or APIs.
-- Keep user privacy statements accurate: the watch list stays on-device; external calls are for TVmaze data and the documented analytics beacon only.
+- Keep user privacy statements accurate. For the v1 tracker: the watch list stays on-device; external calls are for TVmaze data and the documented analytics beacon only. The landing page describes v2, which also syncs the list to a secret gist in the user's own GitHub account.
 
 For fuller behavioral history and edge cases, read `myshows/CLAUDE_CONTEXT.md` before making tracker changes.

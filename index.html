@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>My Shows — a free, private TV episode tracker</title>
-<meta name="description" content="Keep track of what to watch next. No install, no hosting, no account, no cost. Your data stays on your own device." />
+<meta name="description" content="Keep track of what to watch next. Free, no install, no hosting. Your list syncs across your devices through your own GitHub Gist." />
 <style>
   :root {
     --bg: #ffffff;
@@ -165,12 +165,22 @@
   .disclaimer h2 { margin-top: 0; font-size: 19px; }
   .disclaimer li { color: var(--text-secondary); font-size: 14px; }
   .donate-badge { margin: 4px 0 20px; }
+  /* Two v2 screenshots side by side; stacked on narrow phones. */
+  .preview-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 32px 0 8px;
+  }
+  @media (max-width: 480px) {
+    .preview-pair { grid-template-columns: 1fr; }
+  }
   .preview-shot {
     width: 100%;
+    height: auto;
     display: block;
     border: 1px solid var(--border);
     border-radius: 14px;
-    margin: 32px 0 8px;
   }
   .preview-caption {
     text-align: center;
@@ -194,23 +204,27 @@
 <div class="wrap">
 
   <nav class="top-nav">
-    <a href="/guide/">How to use</a>
-    <a href="/changelog/">Changelog</a>
+    <a href="https://v2.myshows.fyi/guide/">How to use</a>
+    <a href="https://v2.myshows.fyi/changelog/">Changelog</a>
   </nav>
 
   <p class="eyebrow">My Shows</p>
   <h1>Always know what episode to watch next.</h1>
-  <p class="tagline">Free. No install. No hosting. No account. Just a page that remembers where you left off.</p>
+  <p class="tagline">Free. No install. No hosting. Syncs across your devices through your own GitHub account.</p>
 
-  <p class="lede">My Shows is a simple TV episode tracker: search for a show, tell it where you left off, and it tells you what's next. It's free for everyone to use — there's nothing to sign up for and nothing to pay for — though donations to help fund my minimal costs are always welcome.</p>
+  <p class="lede">My Shows is a simple TV episode tracker: search for a show, tell it where you left off, and it tells you what's next — on your phone, tablet, or computer, with the same list on each. It's free for everyone to use and there's nothing to pay for, though donations to help fund my minimal costs are always welcome.</p>
   <p class="donate-badge"><a href='https://ko-fi.com/Z8O623D716' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></p>
 
   <div class="cta-row">
-    <a class="cta" href="/myshows/">Start tracking your shows →</a>
+    <a class="cta" href="https://v2.myshows.fyi/">Start tracking your shows →</a>
   </div>
-  <p class="fine-print">Opens straight in your browser. Works on phone, tablet, or desktop. New to it? The <a href="/guide/">how-to-use guide</a> covers everything.</p>
+  <p class="fine-print">Opens straight in your browser. Works on phone, tablet, or desktop. <strong>You'll need a free GitHub account</strong> — My Shows keeps your list in a gist there so it's the same on every device. New to it? The <a href="https://v2.myshows.fyi/guide/">how-to-use guide</a> covers everything, including getting a token.</p>
+  <p class="fine-print">Using the original version? <a href="/myshows/">My Shows v1</a> is still available for legacy users, along with its <a href="/guide/">v1 guide</a>.</p>
 
-  <img class="preview-shot" src="images/app-preview-dark.png" alt="My Shows list view showing shows grouped into Available now, Upcoming, and Pending return, next to a detail view for an episode with air date, runtime, episodes left in season, and seasons remaining" />
+  <div class="preview-pair">
+    <img class="preview-shot" src="images/v2-list-dark.png" width="600" height="1084" alt="My Shows v2 list view with Watching, Waiting and Done tabs, showing currently running shows and ended shows being binged" />
+    <img class="preview-shot" src="images/v2-detail-dark.png" width="600" height="1078" alt="My Shows v2 episode detail view with air date, runtime, season, episodes left in season and seasons remaining" />
+  </div>
   <p class="preview-caption">The list view and an episode's detail view</p>
 
   <h2>Nothing to install. Nothing to host.</h2>
@@ -227,28 +241,33 @@
     </div>
     <div class="card">
       <h3>No hosting to set up</h3>
-      <p>It's already hosted. You don't need your own server, domain, or technical setup of any kind.</p>
+      <p>It's already hosted. You don't need your own server or domain. Sync uses a free gist in your own GitHub account, not a server of mine.</p>
     </div>
   </div>
 
   <h2>How it works</h2>
   <ol class="steps">
+    <li>Connect once with a GitHub token that has only the gist scope. My Shows creates a gist in your GitHub account to hold your list. On your other devices, connect with a token from the same account and your list loads.</li>
     <li>Search for a show by name. Show data comes from <a href="https://www.tvmaze.com" target="_blank" rel="noopener">TVmaze</a>, a free public TV database.</li>
-    <li>Tell it the last episode you watched (or leave it blank if you're starting fresh).</li>
-    <li>It tells you exactly what to watch next, and groups your shows into Available now, Upcoming, Pending return, and Completed.</li>
-    <li>Tap "Mark watched" and it moves on to the next episode automatically.</li>
+    <li>Tell it where you're up to: starting fresh, a specific season and episode, or caught up.</li>
+    <li>It tells you exactly what to watch next, and sorts your shows into Watching (currently running shows, and ended shows you're binging), Waiting (caught up and waiting for the next episode or season, or suspended), and Done.</li>
+    <li>Tap "Mark watched" and it moves on to the next episode automatically. The "✓ Synced" badge at the top confirms your gist has your latest changes.</li>
   </ol>
-  <p><a href="/guide/">See the full how-to-use guide →</a> (adding a show, the four categories, suspending vs. deleting a series, with pictures.)</p>
+  <p><a href="https://v2.myshows.fyi/guide/">See the full how-to-use guide →</a> (connecting, adding a show, Watching / Waiting / Done, suspending vs. deleting a series, and fixing sync problems.)</p>
 
   <h2>Your data stays yours</h2>
-  <p>There are no accounts and no server storing your watch list. Everything you track is saved only in your own browser's local storage, on your own device. The only outside request this page ever makes is looking up show and episode information from TVmaze — your list itself is never sent anywhere.</p>
+  <p>There's no My Shows server or database storing your watch list. Your list is saved in your browser on each device and in a secret gist in your own GitHub account. Secret gists aren't listed publicly or searchable, but anyone who has a gist's exact link can open it, so don't share that link. Your token is stored only on the device where you entered it. The only outside requests this page makes are to TVmaze for show and episode information, and to GitHub to sync your list — your list is never sent to me.</p>
+
+  <h2>Coming from v1?</h2>
+  <p>v2 is a separate app, and <a href="/myshows/">v1</a> keeps working as before. To bring your v1 list across, download a backup in v1 (the ↻ icon), then in v2 go to <strong>Settings › Backup &amp; restore › Choose backup file</strong>. This replaces whatever is in your v2 list. Shows that can't be brought across — for example ones with no "Watching on" platform — are listed afterwards with the reason, so you can add them again.</p>
 
   <div class="limitations">
     <h2>Limitations — read this before you rely on it</h2>
     <ul>
-      <li><strong>No sync between devices.</strong> Your watch list lives in one browser on one device. Adding a show on your phone won't make it appear on your laptop, and there's no account to tie them together.</li>
-      <li><strong>Your data can be lost, especially on iOS.</strong> iOS does not guarantee that a website's local storage survives indefinitely — it can be cleared under storage pressure, after a restart, or after a period of inactivity, even for pages added to your home screen. This is an iOS platform limitation, not something this page can prevent.</li>
-      <li><strong>Backups are manual, not automatic.</strong> A backup/restore feature is built in (the ↻ icon), but it only runs when you use it. If you want to protect against the data loss above, download a backup occasionally — especially before an iOS update.</li>
+      <li><strong>Requires a GitHub account and token.</strong> Sync can't be turned off. If your token expires or is revoked, the app keeps working on that device but stops syncing until you enter a new one.</li>
+      <li><strong>No merging of simultaneous edits.</strong> The most recent change wins. If you edit your list on two devices before either has synced, one set of changes will overwrite the other.</li>
+      <li><strong>Your gist is your safety net, not a guarantee.</strong> iOS can clear a website's local storage at any time, but your list comes back from your gist when you reconnect. If the gist itself is deleted or your GitHub account is lost, so is your list.</li>
+      <li><strong>Extra backups are manual.</strong> You can also download a backup file from Settings › Backup &amp; restore, but only when you choose to.</li>
       <li><strong>No notifications.</strong> Nothing will alert you when a new episode airs — you have to open the page to check.</li>
       <li><strong>Depends on TVmaze's data.</strong> If a show isn't in TVmaze's database, or its episode data has gaps, that carries through here too.</li>
     </ul>
@@ -260,26 +279,26 @@
     <ul>
       <li><strong>Availability.</strong> The site could go down temporarily, change, or be discontinued entirely at any time, without notice.</li>
       <li><strong>Data accuracy.</strong> Show and episode information comes from TVmaze's free public database and isn't independently verified — errors, gaps, or delays in their data carry through here.</li>
-      <li><strong>Data preservation.</strong> As covered above, your watch list can be lost (especially on iOS) and there's no server-side backup to recover it from.</li>
+      <li><strong>Data preservation.</strong> Your list lives in your own GitHub gist and in your browser. There's no My Shows server-side backup to recover it from if both are lost.</li>
       <li><strong>Fitness for any particular purpose.</strong> Use it because it's useful to you, not because it's promised to work a certain way.</li>
     </ul>
     <p>Use it at your own discretion. If any of this matters a lot to you, keep your own backups (see above) and don't treat this as your only record of what you've watched.</p>
   </div>
 
   <div class="cta-row">
-    <a class="cta" href="/myshows/">Start tracking your shows →</a>
+    <a class="cta" href="https://v2.myshows.fyi/">Start tracking your shows →</a>
   </div>
-  <p class="fine-print">New to it? See the <a href="/guide/">how-to-use guide</a>.</p>
+  <p class="fine-print">New to it? See the <a href="https://v2.myshows.fyi/guide/">how-to-use guide</a>. Looking for the original? <a href="/myshows/">My Shows v1</a> is still available.</p>
 
   <footer>
     <div class="links">
-      <a href="/guide/">How to use</a>
-      <a href="/changelog/">Changelog</a>
-      <a href="https://github.com/CyberAdvisor/MyShows" target="_blank" rel="noopener">Source on GitHub</a>
+      <a href="https://v2.myshows.fyi/guide/">How to use</a>
+      <a href="https://v2.myshows.fyi/changelog/">Changelog</a>
+      <a href="https://github.com/CyberAdvisor/MyShows-V2" target="_blank" rel="noopener">Source on GitHub</a>
       <a href="https://www.tvmaze.com" target="_blank" rel="noopener">Powered by TVmaze</a>
-      <a href="https://github.com/CyberAdvisor/MyShows/issues" target="_blank" rel="noopener">Report an issue</a>
+      <a href="https://github.com/CyberAdvisor/MyShows-V2/issues" target="_blank" rel="noopener">Report an issue</a>
     </div>
-    <p>Built and maintained by one person as a free hobby project. Found a bug or have a feature request? <a href="https://github.com/CyberAdvisor/MyShows/issues" target="_blank" rel="noopener">Open an issue on GitHub</a>.</p>
+    <p>Built and maintained by one person as a free hobby project. Found a bug or have a feature request? <a href="https://github.com/CyberAdvisor/MyShows-V2/issues" target="_blank" rel="noopener">Open an issue on GitHub</a>.</p>
     <p>The code is open source. If you'd rather run your own private copy instead of using this hosted one, you can — see the source repository for instructions.</p>
   </footer>
 
