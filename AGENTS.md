@@ -34,6 +34,6 @@ node myshows/app.test.js
 
 - Update the relevant public page (`README.md`, `guide/index.html`, or `changelog/index.html`) when a user-visible workflow changes.
 - GitHub Pages serves this repository as a static HTTPS site; `CNAME` defines the custom domain. Avoid changes that assume server-side routing or APIs.
-- Keep user privacy statements accurate. For the v1 tracker: the watch list stays on-device; external calls are for TVmaze data and the documented analytics beacon only. The landing page describes v2, which also syncs the list to a secret gist in the user's own GitHub account.
+- Keep user privacy statements accurate. For the v1 tracker: the watch list stays on-device; external calls are for TVmaze data and the documented analytics beacon only. The landing page describes v2, which also syncs the list to a secret gist in the user's own GitHub account. The landing page loads the same Statcounter snippet (project 13340854, invisible) in its `<head>`, and its privacy paragraph discloses it.
 
 For fuller behavioral history and edge cases, read `myshows/CLAUDE_CONTEXT.md` before making tracker changes.

@@ -199,6 +199,25 @@
   footer .links { margin-bottom: 8px; }
   footer .links a { margin-right: 16px; }
 </style>
+<!-- Default Statcounter code for My Shows (landing page).
+     Same project and invisible mode as the v1 and v2 apps. Kept in the
+     head, matching the apps' rule that script tags go above any inline
+     app script (see myshows/CLAUDE_CONTEXT.md, "Statcounter beacon"). -->
+<script type="text/javascript">
+var sc_project=13340854;
+var sc_invisible=1;
+var sc_security="474bb4c6";
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13340854/0/474bb4c6/1/"
+alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 </head>
 <body>
 <div class="wrap">
@@ -256,7 +275,7 @@
   <p><a href="https://v2.myshows.fyi/guide/">See the full how-to-use guide →</a> (connecting, adding a show, Watching / Waiting / Done, suspending vs. deleting a series, and fixing sync problems.)</p>
 
   <h2>Your data stays yours</h2>
-  <p>There's no My Shows server or database storing your watch list. Your list is saved in your browser on each device and in a secret gist in your own GitHub account. Secret gists aren't listed publicly or searchable, but anyone who has a gist's exact link can open it, so don't share that link. Your token is stored only on the device where you entered it. The only outside requests this page makes are to TVmaze for show and episode information, and to GitHub to sync your list — your list is never sent to me.</p>
+  <p>There's no My Shows server or database storing your watch list. Your list is saved in your browser on each device and in a secret gist in your own GitHub account. Secret gists aren't listed publicly or searchable, but anyone who has a gist's exact link can open it, so don't share that link. Your token is stored only on the device where you entered it. For your list, the app talks only to TVmaze for show and episode information and to GitHub to sync — your list is never sent to me. This page and the app also load Statcounter, a web analytics service, to count visits and spot outages; it never sees your list.</p>
 
   <h2>Coming from v1?</h2>
   <p>v2 is a separate app, and <a href="/myshows/">v1</a> keeps working as before. To bring your v1 list across, download a backup in v1 (the ↻ icon), then in v2 go to <strong>Settings › Backup &amp; restore › Choose backup file</strong>. This replaces whatever is in your v2 list. Shows that can't be brought across — for example ones with no "Watching on" platform — are listed afterwards with the reason, so you can add them again.</p>
